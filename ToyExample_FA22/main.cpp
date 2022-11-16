@@ -1,20 +1,45 @@
 #include <iostream>
-#include <climits>
 
 using namespace std;
 
+typedef double SCALAR;
+
+enum colors
+{
+	Red,
+	Blue,
+	Green,
+	Purple,
+	Pink,
+	Brown
+};
+
 int main()
 {
-	cout << "Size of:\nchar: " << sizeof(char) << "\n\nshort: " << sizeof(short) << "\n\nint: ";
-	cout << sizeof(int) << "\n\nlong: " << sizeof(long) << "\n\nbool: " << sizeof(bool) << "\n\n";
+	SCALAR number = 1;
+	SCALAR another_number = 2;
+	colors fav = Blue;
 
-	cout << "Min/Max:\nchar min/max: " << CHAR_MIN << " " << CHAR_MAX << "\n\nshort min/max: ";
-	cout << SHRT_MIN << " " << SHRT_MAX << "\n\nint min/max: " << INT_MIN << " " << INT_MAX;
-	cout << "\n\nlong min/max: " << LONG_MIN << " " << LONG_MAX << endl;
+	cout << "SCALAR add: " << number + another_number << endl << endl;
+	cout << "colors fav: " << fav << endl;
 
-	long long ex = pow(3000000000, 2);
-
-	cout << ex;
+	switch (fav)
+	{
+	case Red:
+		break;
+	case Blue:	cout << " Blue\n";
+		break;
+	case Green:
+		break;
+	case Purple:
+		break;
+	case Pink:
+		break;
+	case Brown:
+		break;
+	default:
+		break;
+	}
 
 	return 0;
 }
