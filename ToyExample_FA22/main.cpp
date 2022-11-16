@@ -1,45 +1,54 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 typedef double SCALAR;
 
-enum colors
+enum Grade
 {
-	Red,
-	Blue,
-	Green,
-	Purple,
-	Pink,
-	Brown
+	A,
+	B,
+	C,
+	D,
+	F
+};
+
+struct StudentRecord
+{
+	string firstName;
+	string lastName;
+	string className;
+	SCALAR gradePercent;
+	Grade gradeLetter;
+};
+
+struct ClassRecord
+{
+	StudentRecord student1;
+	StudentRecord student2;
+	StudentRecord student3;
 };
 
 int main()
 {
-	SCALAR number = 1;
-	SCALAR another_number = 2;
-	colors fav = Blue;
+	StudentRecord george;
+	george.firstName = "George";
+	george.lastName = "Smith";
+	george.className = "Calculus 1";
+	george.gradeLetter = B;
+	george.gradePercent = 0.87;
 
-	cout << "SCALAR add: " << number + another_number << endl << endl;
-	cout << "colors fav: " << fav << endl;
+	ClassRecord calculus;
+	calculus.student1 = george;
 
-	switch (fav)
-	{
-	case Red:
-		break;
-	case Blue:	cout << " Blue\n";
-		break;
-	case Green:
-		break;
-	case Purple:
-		break;
-	case Pink:
-		break;
-	case Brown:
-		break;
-	default:
-		break;
-	}
+	calculus.student2.firstName = "Adam";
+	calculus.student2.lastName = "Smith";
+	calculus.student2.className = "Calculus 1";
+	calculus.student2.gradeLetter = C;
+	calculus.student2.gradePercent = 0.71;
+
+	cout << "First Name: " << george.firstName << endl << endl;
 
 	return 0;
 }
