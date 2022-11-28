@@ -1,24 +1,29 @@
 #include <iostream>
+#include <time.h>
+#include <stdlib.h>
+#include <iomanip>
 
 using namespace std;
 
-typedef double SCALAR;
-
-union example
-{
-	SCALAR s_point;
-	float f_point;
-	int i_point;
-};
-
 int main()
 {
-	example point;
+	double studentGrades[10];
+	srand(unsigned int(time(NULL)));
 
-	point.f_point = 3.14;
-	point.i_point = 42;
+	studentGrades[0] = 0.987;
+	studentGrades[1] = 0.789;
 
-	cout << point.f_point << " " << point.i_point << endl << endl;
+	for (int i = 2; i < 10; i++)
+	{
+		studentGrades[i] = rand() / double(RAND_MAX);
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		cout << fixed << setprecision(1) << "Student " << i + 1 << ": " << studentGrades[i] * 100 << "%\n";
+	}
+
+	cout << endl;
 
 	return 0;
 }
